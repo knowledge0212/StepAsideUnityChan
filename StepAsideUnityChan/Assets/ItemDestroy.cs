@@ -9,6 +9,7 @@ public class ItemDestroy : MonoBehaviour
 	private float difference;
 
 	void Start(){
+		//unityちゃんとメインカメラとの位置の差分を出しておく
 		this.unitychan = GameObject.Find ("unitychan");
 		this.mainCamera = GameObject.Find ("Main Camera");
 		this.difference = this.unitychan.transform.position.z - this.mainCamera.transform.position.z;

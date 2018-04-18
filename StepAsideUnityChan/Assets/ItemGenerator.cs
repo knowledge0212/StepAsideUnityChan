@@ -11,19 +11,22 @@ public class ItemGenerator : MonoBehaviour
 	public GameObject coinPrefab;
 	//conePrefabを入れる
 	public GameObject conePrefab;
+
 	//スタート地点
-	private int startPos = -160;
-	//ゴール地点
-	private int goalPos = 120;
+	private const int startPos = -245;
 	//アイテムを出すx方向の範囲
 	private float posRange = 3.4f;
 
+	//他のオブジェクトと接触した場合の処理
+	private void OnTriggerEnter (Collider other){
+		int itemStartPos = (int)this.transform.position.z + 40;
+		int itemEndPos = itemStartPos + 40;
+		addItem (itemStartPos, itemEndPos);
+	}
 
-	// Use this for initialization
-	void Start ()
-	{
+	private void addItem(int startPos,int endPos){
 		//一定の距離ごとにアイテムを生成
-		for (int i = startPos; i < goalPos; i += 15) {
+		for (int i = startPos; i < endPos; i += 15) {
 			//どのアイテムを出すのかをランダムに設定
 			int num = Random.Range (0, 10);
 			if (num <= 1) {
@@ -53,11 +56,5 @@ public class ItemGenerator : MonoBehaviour
 				}
 			}
 		}
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-		
 	}
 }
