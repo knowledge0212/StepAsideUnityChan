@@ -8,6 +8,7 @@ TagManager:
   - TrafficConeTag
   - CoinTag
   - GoalTag
+  - GenerateTag
   layers:
   - Default
   - TransparentFX
